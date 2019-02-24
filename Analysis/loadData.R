@@ -1,4 +1,4 @@
-studentData <- read.csv("Source/uowdata.csv")
+studentData <- read.csv(paste0(data_path, "uowdata.csv"))
 # view the first 6 rows
 head(studentData)
 # shows dimensions of data frame. first value shows number of columns and second value shows number of rows
@@ -88,6 +88,7 @@ with(Architec, plot(COMMUTELENGTH, AVERAGEMODULEMARK))
 
 
 #ONLY law students 
+Law <- subset(studentData.clean, NEWCOURSETITLE == "LLB Law FT" & STUDYLEVEL == "Level 4")
 Law <- subset(studentData.clean, NEWCOURSETITLE == "LLB Law FT")
 Law <- subset(studentData.clean, NEWCOURSETITLE == "LLB Law FT" & ACCOMMODATIONTYPE == "UoW Halls")
 Law <- subset(studentData.clean, NEWCOURSETITLE == "LLB Law FT" & ACCOMMODATIONTYPE == "Commuter")
@@ -98,17 +99,16 @@ row.names(Law) <- NULL
 summary(Law)
 str(Law$NEWCOURSETITLE)
 with(Law, plot(COMMUTELENGTH, ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100))
-with(Law, plot(COMMUTELENGTH, AVERAGEMODULEMARK))
+with(Law, plot(ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100, AVERAGEMODULEMARK))
 
 library(ggplot2)
 
-d <- ggplot(studentData.clean, aes(x=COMMUTELENGTH, y=ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100)) +
+d <- ggplot(Law, aes(x=ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100, y=AVERAGEMODULEMARK)) +
   geom_point(shape=1) +    # Use hollow circles
   geom_smooth(method=lm)   # Add linear regression line 
 #  (by default includes 95% confidence region)
 
 d + geom_point(aes(colour = factor(AVERAGEMODULEMARK)))
-
 # Round xvar and yvar to the nearest 5
 xaxis <- round(Law$COMMUTELENGTH/5)*5
 yaxis <- round((Law$ACTUALATTENDANCEDAYS/Law$EXPECTEDATTENDANCEDAYS * 100)/5)*5
@@ -125,3 +125,30 @@ ggplot(aes(x=xaxis, y=yaxis)) +
 ggplot(dat, aes(x=xrnd, y=yrnd)) +
   geom_point(shape=1,      # Use hollow circles
              position=position_jitter(width=1,height=.5))
+
+#histogram num of students and commute time
+ggplot(Law, aes(x=COMMUTELENGTH)) + geom_histogram(binwidth=3, color="black", fill="white")
+
+#histogram num of students and commute time with density plot
+ggplot(Law, aes(x=COMMUTELENGTH)) + geom_histogram(binwidth=3, aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666")
+
+ggplot(Law, aes(COMMUTELENGTH)) +
+  geom_freqpoly(binwidth = 3)
+
+#number of students living at home for each course
+g <- ggplot(Law, aes(ACCOMMODATIONTYPE))
+g + geom_bar()
+
+library(dplyr)
+ed_exp5 <- select(filter(studentData.clean, NEWCOURSECODE),c(State,Minor.Population:Education.Expenditures))
+
+for (row in 1:nrow(stock)) {
+  price <- stock[row, "apple"]
+  date  <- stock[row, "date"]
+  
+  if(price > 117) {
+    print(paste("On", date, 
+                "the stock price was", price))
+  }
+}
