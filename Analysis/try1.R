@@ -1,4 +1,3 @@
-studentData <- read.csv(paste0(data_path, "uowdata.csv"))
 # view the first 6 rows
 head(studentData)
 # shows dimensions of data frame. first value shows number of columns and second value shows number of rows
@@ -75,7 +74,7 @@ compSci <- subset(studentData.clean, NEWCOURSETITLE == "BSc Computer Science FT"
 row.names(compSci) <- NULL
 summary(compSci)
 str(compSci$NEWCOURSETITLE)
-with(compSci, plot(COMMUTELENGTH, ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100))
+with(compSci, plot(COMMUTELENGTH * 1.6, ACTUALATTENDANCEDAYS/EXPECTEDATTENDANCEDAYS * 100))
 with(compSci, plot(COMMUTELENGTH, AVERAGEMODULEMARK))
 
 #ONLY Architecture students 
@@ -152,3 +151,5 @@ for (row in 1:nrow(stock)) {
                 "the stock price was", price))
   }
 }
+
+# select(-(NEWCOURSETITLE)) %>%
