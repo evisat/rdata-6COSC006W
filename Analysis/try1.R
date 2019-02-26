@@ -153,3 +153,15 @@ for (row in 1:nrow(stock)) {
 }
 
 # select(-(NEWCOURSETITLE)) %>%
+
+pie <- ggplot(cBAADS01F, aes(x = AVERAGEMODULEMARK, fill = factor(YEAR))) +
+  geom_bar(width = 1)
+pie + coord_polar(theta = "y")
+
+
+
+ggplot(averageCL, aes(x=YEAR, y = averageMark)) + geom_bar(fill="mediumvioletred", color="midnightblue", stat = "identity") + ggtitle("Plot of length \n by dose")
+
+ggsave("graph.png", plot = last_plot(), device = NULL, path = "~/Desktop/Final Year Project/Charts",
+       scale = 1, width = 20, height = 20, units = "cm",
+       dpi = 300, limitsize = TRUE)

@@ -14,3 +14,5 @@ row.names(studentData.clean) <- NULL
 studentData.clean <- mutate(studentData.clean, 
                             PERCENTAGEATTENDANCE = ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100
 )
+
+#remove students whos geodesic distance is 0 but they are living in UOW Halls, but also other people who live in Halls their geodesic distance is not 0
