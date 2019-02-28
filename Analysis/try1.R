@@ -165,3 +165,10 @@ ggplot(averageCL, aes(x=YEAR, y = averageMark)) + geom_bar(fill="mediumvioletred
 ggsave("graph.png", plot = last_plot(), device = NULL, path = "~/Desktop/Final Year Project/Charts",
        scale = 1, width = 20, height = 20, units = "cm",
        dpi = 300, limitsize = TRUE)
+
+# CHECK HOW MANY FOR EACH COURSE
+studentData.clean %>%
+  group_by(NEWCOURSECODE) %>%
+  filter(NEWCOURSECODE == "BECSS01F") %>%
+  tally()
+

@@ -18,32 +18,12 @@ campus.list <- list(harrow_campus, cavendish_campus, regent_campus, marylebone_c
 #There are around about 104 course therefore I will have 104 different subsets
 #The reason I am doing this is to analyse the difference for each course.
 
-#create a list of all the distinct course codes
-distinct_ct = studentData.clean %>% distinct(NEWCOURSECODE)
-
-course.list <- list()
-
-for(i in distinct_ct) {
-  for(j in i) {
-    assign(paste0("c", j), studentData.clean %>%
-             filter(NEWCOURSECODE == j))
-    course.list[[paste0("c", j)]] <- studentData.clean %>%
-      filter(NEWCOURSECODE == j)
-  }
-}
-
-for(course in names(course.list)) {
-  # print(course.list[[course]][["NEWCOURSETITLE"]][1])
-  varName <- paste0("AM-", course)
-  assign(varName, get(course) %>%
-           group_by(YEAR) %>%
-           summarise(averageMark = mean(AVERAGEMODULEMARK, na.rm = TRUE)))
-
-  ggplot(get(varName), aes(x=YEAR, y = averageMark)) + geom_bar(fill="mediumvioletred", color="midnightblue", stat = "identity") + ggtitle(paste0("Graph Showing Average Mark for students studying the course \n", course.list[[course]][["NEWCOURSETITLE"]][1]))
-
-  ggsave(paste0("AM-", course, ".png"), plot = last_plot(), device = NULL, path = "~/Desktop/Final Year Project/Charts",
-          scale = 1, width = 20, height = 20, units = "cm",
-          dpi = 300, limitsize = TRUE)
+for(y in names(course.list)) {
+  varName <- paste0("AM.", y)
+  
+  assign(varName, get(y) %>%
+           dplyr::group_by(YEAR) %>%
+           dplyr::summarise(averageMark = mean(AVERAGEMODULEMARK, na.rm = TRUE)))
 }
 
 #get average commute time per Course
@@ -66,3 +46,4 @@ first(averageCL %>%
   arrange(desc(averageCL)) %>%
   filter(row_number() %in% c(1))
 )
+

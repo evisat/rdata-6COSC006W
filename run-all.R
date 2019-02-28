@@ -1,8 +1,8 @@
 #script loads all functions used in project
-source('R/.R')
+source('R/00.utils.R')
 
 #script loads all libraries used in project
-source('R/loadlibraries.R')
+source('R/01.load-libs.R')
 
-#script adds tinifyr function
-source('.R')
+#script cleans raw data
+source('R/02.clean-data.R')
