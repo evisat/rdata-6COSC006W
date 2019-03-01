@@ -46,10 +46,3 @@ first(averageCL %>%
   arrange(desc(averageCL)) %>%
   filter(row_number() %in% c(1))
 )
-
-
-#get average mark for each course
-studentData.clean %>%
-  group_by(NEWCOURSETITLE) %>%
-  summarise(avg_mark = mean(AVERAGEMODULEMARK)) %>% 
-  arrange(desc(avg_mark)) 
