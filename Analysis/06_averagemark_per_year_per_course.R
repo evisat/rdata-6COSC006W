@@ -3,7 +3,7 @@ glimpse(studentData.clean)
 averagemark.per.year.by.course <-
   studentData.clean %>%
   group_by(NEWCOURSETITLE, YEAR) %>%
-  summarize(average_mark=n()) %>%
+  summarise(average_mark = mean(AVERAGEMODULEMARK)) %>%
   arrange(YEAR)
 
 averagemark.per.year.by.course <- averagemark.per.year.by.course[1:176,]
