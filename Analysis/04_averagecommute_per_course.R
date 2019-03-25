@@ -36,7 +36,7 @@ averagecommute.per.course.plot <-
          aes(x = reorder(NEWCOURSETITLE, avg_commute), y = avg_commute)) +
   geom_bar(stat="identity",
            position="identity",
-           fill="#1380A1") +
+           fill="#a2134a") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
   labs(title="Bottom 10 Average Commute Length Per Course", x="Course Name", y="Average Commute Length (geodesic miles)")
 

@@ -18,7 +18,7 @@ averagemark.per.year.by.course <-
   facet_wrap( ~ NEWCOURSETITLE, nrow = 8) +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
   labs(title="Average mark per year",
-       subtitle = "Average number of marks reported by Univeristy of Westmisnter by Course")
+       subtitle = "Average number of marks reported by Univeristy of Westminster by Course")
 
 averagemark.per.year.by.course
 

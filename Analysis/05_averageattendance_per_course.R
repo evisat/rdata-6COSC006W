@@ -36,7 +36,7 @@ averageattendance.per.course.plot <-
          aes(x = reorder(NEWCOURSETITLE, avg_attendance), y = avg_attendance)) +
   geom_bar(stat="identity",
            position="identity",
-           fill="#1380A1") +
+           fill="#a2134a") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
   labs(title="Bottom 10 Average Attendance Per Course", x="Course Name", y="Average Attendance (%)")
 

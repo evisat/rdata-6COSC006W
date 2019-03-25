@@ -19,16 +19,18 @@ averagemark.by.commutelength.per.course
 
 #Make plot
 averagemark.by.commutelength.per.course.plot <- 
-  ggplot(averagemark.by.commutelength.per.course, aes(x = COMMUTELENGTH, y = AVERAGEMODULEMARK)) +
-  geom_point(size = 1, pch = 21, colour = "black") +
-  facet_wrap( ~ NEWCOURSETITLE, nrow = 8) +
-  geom_smooth(method=lm) +
+  ggplot(averagemark.by.commutelength.per.course, aes(x = COMMUTELENGTH, y = AVERAGEMODULEMARK, colour = NEWCOURSETITLE)) +
+  geom_point(size = 1, pch = 21, show.legend = FALSE, alpha = 0.7) +
+  facet_wrap( ~ NEWCOURSETITLE, nrow = 10, labeller = labeller(NEWCOURSETITLE = label_wrap_gen(width = 20))) +
+  geom_smooth(method=lm, colour="black", size=1) +
+  theme(legend.position = 'none') +
   xlim (-1, 20) +
   ylim (-5, 70) +
+  scale_color_viridis_d() +
   labs(title = "A scatterplot showing the relationship between commute length and average module mark",
        subtitle = "")
 
 averagemark.by.commutelength.per.course.plot
 
 #save plot as png
-save_plot(averagemark.by.commutelength.per.course.plot, 1000, 640, "averagemark_by_commutelength_per_course.png")
+save_plot(averagemark.by.commutelength.per.course.plot, 1000, 940, "averagemark_by_commutelength_per_course.png")
