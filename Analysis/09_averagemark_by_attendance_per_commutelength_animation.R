@@ -12,8 +12,8 @@ theme_set(theme_bw())  # pre-set the bw theme.
 
 average.commutelengths.per.course <- studentData.clean %>%
   group_by(NEWCOURSETITLE) %>%
-  summarise(avg_commutelength = mean(AVERAGEMODULEMARK)) %>%
-  arrange(desc(avg_commutelength))
+  summarise(avg_moduleMark = mean(AVERAGEMODULEMARK)) %>%
+  arrange(desc(avg_moduleMark))
 
 attendance.per.course <- studentData.clean %>%
   group_by(NEWCOURSETITLE) %>%

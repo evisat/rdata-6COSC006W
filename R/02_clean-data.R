@@ -12,8 +12,7 @@ row.names(studentData.clean) <- NULL
 
 #create a new column that contains the percentage attendance
 studentData.clean <- studentData.clean %>% 
-  mutate(PERCENTAGEATTENDANCE = ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100
-)
+  mutate(PERCENTAGEATTENDANCE = round(ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100, 2))
 
 #remove courses who have less than [[N]] students (check on this number)
 #a lot of courses have
@@ -34,3 +33,11 @@ course_one_year <- studentData.clean %>%
 #filter these course from the data
 studentData.clean <- studentData.clean %>%
   filter(!(NEWCOURSECODE %in% course_one_year[[1]]))
+
+#Remove subjects with masters degree type e.g. MEng or Integrated Masters
+studentData.clean <- studentData.clean %>%
+  filter(!grepl('Integrated|MEng', NEWCOURSETITLE))
+
+#add column to represent degree type e.g. BA, BSc, LLB, MEng, Integrated masters
+studentData.clean <- studentData.clean %>% 
+  mutate(DEGREETYPE = word(NEWCOURSETITLE))
