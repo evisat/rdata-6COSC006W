@@ -41,3 +41,9 @@ studentData.clean <- studentData.clean %>%
 #add column to represent degree type e.g. BA, BSc, LLB, MEng, Integrated masters
 studentData.clean <- studentData.clean %>% 
   mutate(DEGREETYPE = word(NEWCOURSETITLE))
+
+#add column to represent the degree classification e.g. 1st, 2:i, 2:ii, 3rd - ignoring marks under 40 
+studentData.clean <- studentData.clean %>%
+  mutate(DEGREECLASS = ifelse(AVERAGEMODULEMARK >= 70, '1st', 
+                              ifelse(AVERAGEMODULEMARK >= 60 & AVERAGEMODULEMARK < 70, '2:i',
+                                     ifelse(AVERAGEMODULEMARK >= 50 & AVERAGEMODULEMARK < 60, '2:ii', '3rd'))))

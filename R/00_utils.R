@@ -5,7 +5,7 @@ data_path <- '~/Desktop/Final Year Project/rdata-6COSC006W/Source/uowdata.csv'
 save_plot <- function (plot_grid, width, height, file_name) {
   grid::grid.draw(plot_grid)
   #save the plot
-  ggsave(filename=file_name, path = "~/Desktop/Final Year Project/rdata-6COSC006W/Output/",
+  ggsave(filename=file_name, path = "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/",
                   plot=plot_grid, width=(width/72), height=(height/72),  bg="white")
 }
   
