@@ -1,7 +1,7 @@
-install.packages("devtools")
-devtools::install_github("hrbrmstr/waffle")
+# install.packages("devtools")
+# devtools::install_github("hrbrmstr/waffle")
 
-library(waffle)
+# library(waffle)
 
 total_averagemarks_by_classification_per_degreetype <- studentData.clean %>%
   filter((STUDYLEVEL == 'Level 5') & (AVERAGEMODULEMARK >= 40)) %>%
@@ -25,12 +25,14 @@ waffle.data.BA <- data.frame(
 )
 
 Ba.waffle.plot <- waffle(waffle.data.BA, rows = 55) +
-  labs(title = "Average Classifications of BA Students in study year 5", fill='Classification type') +
-  theme(plot.title = element_text(size = 27),
-        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")))
+  labs(title = "Average classifications of BA students in level 5", fill='Classification type') +
+  theme(plot.title = element_text(face = "bold", size = 24),
+        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(Ba.waffle.plot, 1000, 940, "averagemark_classifications_BA_year5.png")
+save_plot(Ba.waffle.plot, 1000, 940, "averagemark_classifications_BA_level5.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BA_waffle_charts/")
 
 
 ##### BMus
@@ -46,12 +48,14 @@ waffle.data.BMus <- data.frame(
 )
 
 BMus.waffle.plot <- waffle(waffle.data.BMus, rows = 8) +
-  labs(title = "Average Classifications of BMus Students in study year 5", fill='Classification type') +
-  theme(plot.title = element_text(size = 27),
-        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")))
+  labs(title = "Average classifications of BMus students in level 5", fill='Classification type') +
+  theme(plot.title = element_text(face = "bold", size = 24),
+        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(BMus.waffle.plot, 1000, 940, "averagemark_classifications_BMus_year5.png")
+save_plot(BMus.waffle.plot, 1000, 940, "averagemark_classifications_BMus_level5.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BMus_waffle_charts/")
 
 
 ##### BEng
@@ -67,12 +71,14 @@ waffle.data.BEng <- data.frame(
 )
 
 BEng.waffle.plot <- waffle(waffle.data.BEng, rows = 5) +
-  labs(title = "Average Classifications of BEng Students in study year 5", fill='Classification type') +
-  theme(plot.title = element_text(size = 27),
-        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")))
+  labs(title = "Average classifications of BEng students in level 5", fill='Classification type') +
+  theme(plot.title = element_text(face = "bold", size = 24),
+        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(BEng.waffle.plot, 1000, 940, "averagemark_classifications_BEng_year5.png")
+save_plot(BEng.waffle.plot, 1000, 940, "averagemark_classifications_BEng_level5.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BEng_waffle_charts/")
 
 
 ##### LLB
@@ -88,12 +94,14 @@ waffle.data.LLB <- data.frame(
 )
 
 LLB.waffle.plot <- waffle(waffle.data.LLB, rows = 15) +
-  labs(title = "Average Classifications of LLB Students in study year 5", fill='Classification type') +
-  theme(plot.title = element_text(size = 27),
-        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")))
+  labs(title = "Average classifications of LLB students in level 5", fill='Classification type') +
+  theme(plot.title = element_text(face = "bold", size = 24),
+        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(LLB.waffle.plot, 1000, 940, "averagemark_classifications_LLB_year5.png")
+save_plot(LLB.waffle.plot, 1000, 940, "averagemark_classifications_LLB_level5.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/LLB_waffle_charts/")
 
 
 ##### BSc
@@ -109,9 +117,11 @@ waffle.data.BSc<- data.frame(
 )
 
 BSc.waffle.plot <- waffle(waffle.data.BSc, rows = 40) +
-  labs(title = "Average Classifications of BSc Students in study year 5", fill='Classification type') +
-  theme(plot.title = element_text(size = 27),
-        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")))
+  labs(title = "Average classifications of BSc students in level 5", fill='Classification type') +
+  theme(plot.title = element_text(face = "bold", size = 24),
+        legend.text = element_text(size = 20, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(BSc.waffle.plot, 1000, 940, "averagemark_classifications_BSc_year5.png")
+save_plot(BSc.waffle.plot, 1000, 940, "averagemark_classifications_BSc_level5.png", 
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BSc_waffle_charts/")

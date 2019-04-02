@@ -16,11 +16,14 @@ averageattendance.per.year.by.course.plot <-
            fill="#f28cab") +
   facet_wrap( ~ NEWCOURSETITLE, nrow = 8) +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Average attendance per year for courses at Harrow Campus",
-       subtitle = "Average attendance of timetabled event recorded by Univeristy of Westminster by Course", x = "Year of study", y = "Average Attendance (%)")
-
-averageattendance.per.year.by.course.plot
+  labs(title="Average attendance per year for courses at Harrow campus",
+       x = "Year of study", y = "Average module attendance (%)") +
+  theme(plot.title = element_text(face = "bold", size = 18),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averageattendance.per.year.by.course.plot, 700, 840, "averageattendance_per_year_per_course_Harrow.png")
+save_plot(averageattendance.per.year.by.course.plot, 700, 840, "averageattendance_per_year_per_course_Harrow.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
 

@@ -15,8 +15,6 @@ averageattendance.by.commutelength.per.course <-
   studentData.clean %>%
   filter(PERCENTAGEATTENDANCE <= 70 & COMMUTELENGTH <= 20)
 
-averageattendance.by.commutelength.per.course
-
 #Make plot
 averageattendance.by.commutelength.per.course.plot <- 
   ggplot(averageattendance.by.commutelength.per.course, aes(x = COMMUTELENGTH, y = PERCENTAGEATTENDANCE, colour = NEWCOURSETITLE)) +
@@ -27,10 +25,13 @@ averageattendance.by.commutelength.per.course.plot <-
   xlim (0, 20) +
   ylim (0, 70) +
   scale_color_viridis_d() +
-  labs(title = "A scatterplot showing the relationship between commute length and average percentage attendance",
-       subtitle = "")
-
-averageattendance.by.commutelength.per.course.plot
+  labs(title = "A scatterplot showing the relationship between commute length and average module attendance",
+       x="Average commute length (Geodesic distance in miles)", y="Average module attendance (%)") +
+  theme(plot.title = element_text(face = "bold", size = 20),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averageattendance.by.commutelength.per.course.plot, 1000, 940, "averageattendance_by_commutelength_per_course.png")
+save_plot(averageattendance.by.commutelength.per.course.plot, 1200, 1300, "averageattendance_by_commutelength_per_course.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")

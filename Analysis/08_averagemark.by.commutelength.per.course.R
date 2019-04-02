@@ -26,11 +26,12 @@ averagemark.by.commutelength.per.course.plot <-
   ylim (-5, 70) +
   scale_color_viridis_d() +
   labs(title = "A scatterplot showing the relationship between commute length and average module mark",
-       x="Average commute length (Geodesic distance in miles)", y="Average module attendance (%)") +
+       x="Average commute length (Geodesic distance in miles)", y="Average module mark (%)") +
   theme(plot.title = element_text(face = "bold", size = 20),
         axis.title.x = element_text(margin = margin(t = 10)),
         axis.title.y = element_text(margin = margin(r = 10)),
         plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averagemark.by.commutelength.per.course.plot, 1000, 1200, "averagemark_by_commutelength_per_course.png")
+save_plot(averagemark.by.commutelength.per.course.plot, 1200, 1300, "averagemark_by_commutelength_per_course.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")

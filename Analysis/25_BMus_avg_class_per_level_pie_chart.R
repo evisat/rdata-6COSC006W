@@ -1,8 +1,8 @@
-library(scales)
-mycols <- c("#EDAE49", "#D1495B", "#00798C", "#424B54")
+# library(scales)
+# mycols <- c("#EDAE49", "#D1495B", "#00798C", "#424B54")
 
-pie.plot.data <- studentData.clean.class %>%
-  filter((AVERAGEMODULEMARK >= 40) & (DEGREETYPE == 'BMus')) %>%
+pie.plot.data <- studentData.clean %>%
+  filter(DEGREETYPE == 'BMus') %>%
   group_by(STUDYLEVEL, DEGREECLASS) %>%
   summarize(COUNT = sum(AVERAGEMODULEMARK >= 40)) %>%
   arrange(desc(DEGREECLASS)) 
@@ -15,10 +15,10 @@ pie.plot <-
   geom_bar(stat = "identity", color = "white") +
   coord_polar(theta = "y", start = 0) +
   geom_text(aes(y = lab.ypos, label = paste(perc, "%", sep="")), color = "white") +
-  scale_fill_manual(values = mycols, name="Degree Classification") +
-  ggtitle("Average Classifications of BMus students per Degree Type") +
+  scale_fill_manual(values = mycols, name="Degree classification") +
+  ggtitle("Average classifications of BMus students per level of study") +
   theme_void() +
-  theme( plot.title = element_text(size = 27, margin = margin(t = 0, r = 0, b = 30, l = 0, unit = "pt")),
+  theme( plot.title = element_text(face = "bold", size = 27, margin = margin(t = 0, r = 0, b = 30, l = 0, unit = "pt")),
          legend.title = element_text(size = 20),
          legend.text = element_text(size = 16, margin = margin(t = 0, r = 0, b = 5, l = 0, unit = "pt")),
          strip.text = element_text(size = 20, margin = margin(b=5)),
@@ -27,4 +27,5 @@ pie.plot <-
   xlim(0.5, 2.5)
 
 #save plot as png
-save_plot(pie.plot, 1500, 940, "BMus_avg_class_per_level_pie_chart.png")
+save_plot(pie.plot, 1500, 940, "BMus_avg_class_per_level_pie_chart.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")

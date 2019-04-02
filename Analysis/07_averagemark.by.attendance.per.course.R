@@ -25,12 +25,13 @@ averagemark.by.attendance.per.course.plot <-
   xlim (0, 70) +
   ylim (0, 70) +
   scale_color_viridis_d() +
-  labs(title = "A scatterplot showing the relationship between attendance and average module mark",
-       x="Percentage attendance (%)", y="Average module attendance (%)") +
+  labs(title = "A scatterplot showing the relationship between average module attendance and average module mark",
+       x="Average module attendance (%)", y="Average module mark (%)") +
   theme(plot.title = element_text(face = "bold", size = 20),
         axis.title.x = element_text(margin = margin(t = 10)),
         axis.title.y = element_text(margin = margin(r = 10)),
         plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averagemark.by.attendance.per.course.plot, 1200, 1300, "averagemark_by_attendance_per_course.png")
+save_plot(averagemark.by.attendance.per.course.plot, 1200, 1300, "averagemark_by_attendance_per_course.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")

@@ -16,11 +16,14 @@ averagemark.per.year.by.course.plot <-
            fill="#f28cab") +
   facet_wrap( ~ NEWCOURSETITLE, nrow = 8) +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Average mark per year for courses at Harrow Campus",
-       subtitle = "Average number of marks reported by Univeristy of Westminster by Course", x = "Year of study", y = "Average Module Mark (%)")
-
-averagemark.per.year.by.course.plot
+  labs(title="Average mark per year for courses at Harrow campus",
+       x = "Year of study", y = "Average module mark (%)") +
+  theme(plot.title = element_text(face = "bold", size = 18),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averagemark.per.year.by.course.plot, 700, 840, "averagemark_per_year_per_course_Harrow.png")
+save_plot(averagemark.per.year.by.course.plot, 700, 840, "averagemark_per_year_per_course_Harrow.png",
+          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
 

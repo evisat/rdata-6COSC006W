@@ -12,7 +12,8 @@ row.names(studentData.clean) <- NULL
 
 #create a new column that contains the percentage attendance
 studentData.clean <- studentData.clean %>% 
-  mutate(PERCENTAGEATTENDANCE = round(ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100, 2))
+  mutate(PERCENTAGEATTENDANCE = round(ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100, 2)) %>%
+  select(-STUDENTID)
 
 #remove courses who have less than [[N]] students (check on this number)
 #a lot of courses have
