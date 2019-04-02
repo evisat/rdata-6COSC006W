@@ -15,8 +15,6 @@ averagemark.by.commutelength.per.course <-
   studentData.clean %>%
   filter(AVERAGEMODULEMARK <= 70 & COMMUTELENGTH <= 20)
 
-averagemark.by.commutelength.per.course
-
 #Make plot
 averagemark.by.commutelength.per.course.plot <- 
   ggplot(averagemark.by.commutelength.per.course, aes(x = COMMUTELENGTH, y = AVERAGEMODULEMARK, colour = NEWCOURSETITLE)) +
@@ -28,9 +26,11 @@ averagemark.by.commutelength.per.course.plot <-
   ylim (-5, 70) +
   scale_color_viridis_d() +
   labs(title = "A scatterplot showing the relationship between commute length and average module mark",
-       subtitle = "")
-
-averagemark.by.commutelength.per.course.plot
+       x="Average commute length (Geodesic distance in miles)", y="Average module attendance (%)") +
+  theme(plot.title = element_text(face = "bold", size = 20),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averagemark.by.commutelength.per.course.plot, 1000, 940, "averagemark_by_commutelength_per_course.png")
+save_plot(averagemark.by.commutelength.per.course.plot, 1000, 1200, "averagemark_by_commutelength_per_course.png")

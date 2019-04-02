@@ -15,8 +15,6 @@ averagemark.by.attendance.per.course <-
   studentData.clean %>%
   filter(AVERAGEMODULEMARK <= 70 & PERCENTAGEATTENDANCE <= 70)
 
-averagemark.by.attendance.per.course
-
 #Make plot
 averagemark.by.attendance.per.course.plot <- 
   ggplot(averagemark.by.attendance.per.course, aes(x = PERCENTAGEATTENDANCE, y = AVERAGEMODULEMARK, colour = NEWCOURSETITLE)) +
@@ -24,12 +22,15 @@ averagemark.by.attendance.per.course.plot <-
   facet_wrap( ~ NEWCOURSETITLE, nrow = 10, labeller = labeller(NEWCOURSETITLE = label_wrap_gen(width = 20))) +
   geom_smooth(method=lm, colour="black", size=1) +
   theme(legend.position = 'none') +
-  xlim (-1, 70) +
-  ylim (-5, 70) +
+  xlim (0, 70) +
+  ylim (0, 70) +
   scale_color_viridis_d() +
-  labs(title = "A scatterplot showing the relationship between attendance and average module mark")
-
-averagemark.by.attendance.per.course.plot
+  labs(title = "A scatterplot showing the relationship between attendance and average module mark",
+       x="Percentage attendance (%)", y="Average module attendance (%)") +
+  theme(plot.title = element_text(face = "bold", size = 20),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
-save_plot(averagemark.by.attendance.per.course.plot, 1000, 940, "averagemark_by_attendance_per_course2.png")
+save_plot(averagemark.by.attendance.per.course.plot, 1200, 1300, "averagemark_by_attendance_per_course.png")

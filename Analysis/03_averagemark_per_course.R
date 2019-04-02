@@ -13,11 +13,13 @@ averagemark.per.course.plot <-
        aes(x = reorder(NEWCOURSETITLE, avg_mark), y = avg_mark)) +
   geom_bar(stat="identity",
            position="identity",
-           fill="#1380A1") +
+           fill="#717EC3") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Top 10 Average Module Mark Per Course", x="Course Name", y="Average Mark")
-
-averagemark.per.course.plot + coord_flip()
+  labs(title="Top 10 average module mark per course", x="Course name", y="Average module mark (%)") +
+  theme(plot.title = element_text(face = "bold", size = 16),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
 save_plot(averagemark.per.course.plot + coord_flip(), 800, 440, "top10_averagemark_per_course.png")
@@ -36,11 +38,13 @@ averagemark.per.course.plot <-
          aes(x = reorder(NEWCOURSETITLE, avg_mark), y = avg_mark)) +
   geom_bar(stat="identity",
            position="identity",
-           fill="#a2134a") +
+           fill="#717EC3") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Bottom 10 Average Module Mark Per Course", x="Course Name", y="Average Mark")
-
-averagemark.per.course.plot + coord_flip()
+  labs(title="Bottom 10 average module mark per course", x="Course name", y="Average module mark (%)") +
+  theme(plot.title = element_text(face = "bold", size = 16),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
 save_plot(averagemark.per.course.plot + coord_flip(), 800, 440, "bottom10_averagemark_per_course.png")

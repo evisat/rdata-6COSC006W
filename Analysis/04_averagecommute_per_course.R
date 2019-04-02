@@ -13,11 +13,13 @@ averagecommute.per.course.plot <-
          aes(x = reorder(NEWCOURSETITLE, avg_commute), y = avg_commute)) +
   geom_bar(stat="identity",
            position="identity",
-           fill="#1380A1") +
+           fill="#a2134a") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Top 10 Average Commute Length Per Course", x="Course Name", y="Average Commute Length (geodesic miles)")
-
-averagecommute.per.course.plot + coord_flip()
+  labs(title="Top 10 average commute length per course", x="Course name", y="Average commute length (Geodesic distance in miles)") +
+  theme(plot.title = element_text(face = "bold", size = 16),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
 save_plot(averagecommute.per.course.plot + coord_flip(), 800, 440, "top10_averagecommute_per_course.png")
@@ -38,9 +40,11 @@ averagecommute.per.course.plot <-
            position="identity",
            fill="#a2134a") +
   geom_hline(yintercept = 0, size = 1, colour="#333333") +
-  labs(title="Bottom 10 Average Commute Length Per Course", x="Course Name", y="Average Commute Length (geodesic miles)")
-
-averagecommute.per.course.plot + coord_flip()
+  labs(title="Bottom 10 average commute length per course", x="Course name", y="Average commute length (Geodesic distance in miles)") +
+  theme(plot.title = element_text(face = "bold", size = 16),
+        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)),
+        plot.margin=unit(c(1,1,1.5,1.2),"cm"))
 
 #save plot as png
 save_plot(averagecommute.per.course.plot + coord_flip(), 800, 440, "bottom10_averagecommute_per_course.png")
