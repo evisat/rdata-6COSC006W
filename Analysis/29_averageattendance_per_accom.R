@@ -4,7 +4,6 @@ glimpse(studentData.clean)
 
 #get top 10 on average mark for each course
 averageattendance.per.accom <- studentData.clean %>%
-  filter(ACCOMMODATIONTYPE != "Unknown") %>%
   group_by(ACCOMMODATIONTYPE) %>%
   summarise(avg_attendance = mean(PERCENTAGEATTENDANCE))
 

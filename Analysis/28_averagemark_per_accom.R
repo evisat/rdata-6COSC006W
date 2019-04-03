@@ -4,7 +4,6 @@ barcols <- c("#DB504A", "#39A9DB", "#2FBF71")
 
 #get top 10 on average mark for each course
 averagemark.per.accom <- studentData.clean %>%
-  filter(ACCOMMODATIONTYPE != "Unknown") %>%
   group_by(ACCOMMODATIONTYPE) %>%
   summarise(avg_mark = mean(AVERAGEMODULEMARK))
 
