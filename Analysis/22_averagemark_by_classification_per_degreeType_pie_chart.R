@@ -27,4 +27,4 @@ pie.plot <-
 
 #save plot as png
 save_plot(pie.plot, 1500, 940, "avg_class_per_degreeType_pie_chart.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")

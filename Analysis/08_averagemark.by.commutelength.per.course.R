@@ -34,4 +34,4 @@ averagemark.by.commutelength.per.course.plot <-
 
 #save plot as png
 save_plot(averagemark.by.commutelength.per.course.plot, 1200, 1300, "averagemark_by_commutelength_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")

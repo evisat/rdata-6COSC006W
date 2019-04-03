@@ -1,5 +1,5 @@
 #load student data
-studentData <- read.csv(data_path)
+studentData <- read.csv(paste0(project_path, 'Source/uowdata.csv'))
 
 #cleans student data
 glimpse(studentData)
@@ -13,7 +13,7 @@ row.names(studentData.clean) <- NULL
 #create a new column that contains the percentage attendance
 studentData.clean <- studentData.clean %>% 
   mutate(PERCENTAGEATTENDANCE = round(ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100, 2)) %>%
-  select(-STUDENTID)
+  select(-STUDENTID, -EXPECTEDATTENDANCEDAYS, -ACTUALATTENDANCEDAYS)
 
 #remove courses who have less than [[N]] students (check on this number)
 #a lot of courses have
@@ -48,3 +48,5 @@ studentData.clean <- studentData.clean %>%
   mutate(DEGREECLASS = ifelse(AVERAGEMODULEMARK >= 70, '1st', 
                               ifelse(AVERAGEMODULEMARK >= 60 & AVERAGEMODULEMARK < 70, '2:i',
                                      ifelse(AVERAGEMODULEMARK >= 50 & AVERAGEMODULEMARK < 60, '2:ii', '3rd'))))
+
+# write.csv(studentData.clean, paste0(project_path, "Output/uowdata_clean.csv"), row.names = F)

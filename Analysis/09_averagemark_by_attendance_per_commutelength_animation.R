@@ -45,4 +45,4 @@ ggplot(attendance.by.commutelength.per.course, aes(x = PERCENTAGEATTENDANCE,
   ease_aes('linear')
 
 animate(attendance.by.commutelength.per.course.plot, height = 800, width = 640)
-anim_save("attendance_by_commutelength_per_course_plot_2.gif", path = "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+anim_save("attendance_by_commutelength_per_course_plot_2.gif", path = "Charts/")

@@ -32,7 +32,7 @@ Ba.waffle.plot <- waffle(waffle.data.BA, rows = 55) +
 
 #save plot as png
 save_plot(Ba.waffle.plot, 1000, 940, "averagemark_classifications_BA_level4.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BA_waffle_charts/")
+          "Charts/BA_waffle_charts/")
 
 
 ##### BMus
@@ -55,7 +55,7 @@ BMus.waffle.plot <- waffle(waffle.data.BMus, rows = 8) +
 
 #save plot as png
 save_plot(BMus.waffle.plot, 1000, 940, "averagemark_classifications_BMus_level4.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BMus_waffle_charts/")
+          "Charts/BMus_waffle_charts/")
 
 
 ##### BEng
@@ -78,7 +78,7 @@ BEng.waffle.plot <- waffle(waffle.data.BEng, rows = 5) +
 
 #save plot as png
 save_plot(BEng.waffle.plot, 1000, 940, "averagemark_classifications_BEng_level4.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BEng_waffle_charts/")
+          "Charts/BEng_waffle_charts/")
 
 
 ##### LLB
@@ -101,7 +101,7 @@ LLB.waffle.plot <- waffle(waffle.data.LLB, rows = 15) +
 
 #save plot as png
 save_plot(LLB.waffle.plot, 1000, 940, "averagemark_classifications_LLB_level4.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/LLB_waffle_charts/")
+          "Charts/LLB_waffle_charts/")
 
 
 ##### BSc
@@ -124,4 +124,4 @@ BSc.waffle.plot <- waffle(waffle.data.BSc, rows = 40) +
 
 #save plot as png
 save_plot(BSc.waffle.plot, 1000, 940, "averagemark_classifications_BSc_level4.png", 
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/BSc_waffle_charts/")
+          "Charts/BSc_waffle_charts/")

@@ -23,7 +23,7 @@ averagecommute.per.course.plot <-
 
 #save plot as png
 save_plot(averagecommute.per.course.plot + coord_flip(), 800, 440, "top10_averagecommute_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")
 
 
 #get bottom 10 on average commute length for each course
@@ -49,4 +49,4 @@ averagecommute.per.course.plot <-
 
 #save plot as png
 save_plot(averagecommute.per.course.plot + coord_flip(), 800, 440, "bottom10_averagecommute_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")

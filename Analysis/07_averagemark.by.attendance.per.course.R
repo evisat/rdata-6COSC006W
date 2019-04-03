@@ -34,4 +34,4 @@ averagemark.by.attendance.per.course.plot <-
 
 #save plot as png
 save_plot(averagemark.by.attendance.per.course.plot, 1200, 1300, "averagemark_by_attendance_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")

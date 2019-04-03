@@ -25,5 +25,5 @@ averagemark.per.year.by.course.plot <-
 
 #save plot as png
 save_plot(averagemark.per.year.by.course.plot, 1500, 1050, "averagemark_per_year_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")
 

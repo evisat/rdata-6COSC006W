@@ -23,7 +23,7 @@ averageattendance.per.course.plot <-
 
 #save plot as png
 save_plot(averageattendance.per.course.plot + coord_flip(), 800, 440, "top10_averageattendance_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")
 
 
 #get bottom 10 on average attendance for each course
@@ -49,5 +49,5 @@ averageattendance.per.course.plot <-
 
 #save plot as png
 save_plot(averageattendance.per.course.plot + coord_flip(), 800, 440, "bottom10_averageattendance_per_course.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")
 

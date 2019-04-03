@@ -25,5 +25,5 @@ averageattendance.per.year.by.course.plot <-
 
 #save plot as png
 save_plot(averageattendance.per.year.by.course.plot, 700, 840, "averageattendance_per_year_per_course_Cavendish.png",
-          "~/Desktop/Final Year Project/rdata-6COSC006W/Charts/")
+          "Charts/")
 
