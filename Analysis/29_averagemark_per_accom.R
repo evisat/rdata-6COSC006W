@@ -1,6 +1,6 @@
 glimpse(studentData.clean)
 
-barcols <- c("#DB504A", "#39A9DB", "#2FBF71")
+barcols <- c("#FAFF70", "#39A9DB", "#2FBF71", "#DB504A")
 
 #get top 10 on average mark for each course
 averagemark.per.accom <- studentData.clean %>%

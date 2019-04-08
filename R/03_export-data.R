@@ -1,4 +1,6 @@
+# install.packages('readr')
 library(jsonlite)
+library(readr)
 
 oldColNames <- colnames(studentData.clean)
 

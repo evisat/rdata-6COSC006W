@@ -12,7 +12,6 @@ row.names(studentData.clean) <- NULL
 
 #create a new column that contains the percentage attendance
 studentData.clean <- studentData.clean %>%
-  filter(ACCOMMODATIONTYPE != "Unknown") %>%
   mutate(PERCENTAGEATTENDANCE = round(ACTUALATTENDANCEDAYS / EXPECTEDATTENDANCEDAYS * 100, 2)) %>%
   select(-STUDENTID, -EXPECTEDATTENDANCEDAYS, -ACTUALATTENDANCEDAYS)
 
