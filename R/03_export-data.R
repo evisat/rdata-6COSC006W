@@ -5,7 +5,7 @@ library(readr)
 oldColNames <- colnames(studentData.clean)
 
 newColNames <- c("year", "course_code", "course_title", "study_level", "commute_length", "accomm_type", 
-                 "campus_postcode", "average_modulemark", "perc_attendance", "degree_type", "degree_class")
+                 "campus_postcode", "average_modulemark", "perc_attendance", "degree_type", "degree_class", "campus_name")
 
 studentData.export <- studentData.clean %>%
   rename_at(vars(oldColNames), ~newColNames)
