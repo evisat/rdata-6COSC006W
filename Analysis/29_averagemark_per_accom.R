@@ -4,8 +4,10 @@ barcols <- c("#FAFF70", "#39A9DB", "#2FBF71", "#DB504A")
 
 #get top 10 on average mark for each course
 averagemark.per.accom <- studentData.clean %>%
+  filter(DEGREETYPE == "BMus" & STUDYLEVEL == "Level 4" & AVERAGEMODULEMARK >= 40) %>%
   group_by(ACCOMMODATIONTYPE) %>%
-  summarise(avg_mark = mean(AVERAGEMODULEMARK))
+  summarise(total = n() / 56 * 100)
+
 
 #Make a plot
 averagemark.per.accom.plot <-
